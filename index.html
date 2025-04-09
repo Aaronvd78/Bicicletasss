@@ -1,0 +1,120 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBicis Maravatío</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "leaflet": "https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js"
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>EcoBicis Maravatío</h1>
+        <p>Tu opción ecológica y divertida para moverte por la ciudad.</p>
+    </header>
+
+    <section id="bikes-image">
+        <!-- Placeholder SVG for EcoBikes -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70" aria-labelledby="bikeTitle bikeDesc">
+            <title id="bikeTitle">EcoBici</title>
+            <desc id="bikeDesc">Una bicicleta estilizada representando las EcoBicis.</desc>
+            <style>
+                .bike-frame { fill: none; stroke: #4CAF50; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+                .bike-wheel { fill: none; stroke: #555; stroke-width: 2; }
+                .bike-spokes { stroke: #aaa; stroke-width: 0.5; }
+                .bike-seat, .bike-pedal, .bike-handle { fill: #333; }
+                .bike-chain { stroke: #666; stroke-width: 1; fill: none; }
+            </style>
+            <!-- Frame -->
+            <path class="bike-frame" d="M25,55 L40,30 L60,30 L75,55 L65,55 L50,35 Z" />
+            <path class="bike-frame" d="M40,30 L25,55" />
+            <path class="bike-frame" d="M60,30 L50,55" /> <!-- Seat post -->
+            <path class="bike-frame" d="M60,30 L70,20 L75,25" /> <!-- Handlebars -->
+            <!-- Wheels -->
+            <circle class="bike-wheel" cx="25" cy="55" r="13" />
+            <circle class="bike-wheel" cx="75" cy="55" r="13" />
+            <!-- Spokes (simplified) -->
+            <line class="bike-spokes" x1="25" y1="55" x2="25" y2="42" />
+            <line class="bike-spokes" x1="25" y1="55" x2="25" y2="68" />
+            <line class="bike-spokes" x1="25" y1="55" x2="12" y2="55" />
+            <line class="bike-spokes" x1="25" y1="55" x2="38" y2="55" />
+            <line class="bike-spokes" x1="75" y1="55" x2="75" y2="42" />
+            <line class="bike-spokes" x1="75" y1="55" x2="75" y2="68" />
+            <line class="bike-spokes" x1="75" y1="55" x2="62" y2="55" />
+            <line class="bike-spokes" x1="75" y1="55" x2="88" y2="55" />
+            <!-- Seat -->
+            <ellipse class="bike-seat" cx="48" cy="33" rx="7" ry="2" transform="rotate(-10 48 33)" />
+            <!-- Pedals/Chain -->
+            <circle class="bike-frame" cx="50" cy="55" r="5" fill="#fff"/>
+            <circle class="bike-pedal" cx="50" cy="60" r="1.5" />
+             <circle class="bike-pedal" cx="50" cy="50" r="1.5" />
+            <path class="bike-chain" d="M50,55 A10,10 0 0,1 75,55" />
+             <path class="bike-chain" d="M50,55 A10,10 0 0,0 75,55" />
+        </svg>
+    </section>
+
+    <section id="how-it-works">
+        <h2>Cómo Funciona</h2>
+        <p>¡Usar EcoBicis es muy fácil!</p>
+        <ol>
+            <li>Encuentra la estación más cercana en nuestro mapa.</li>
+            <li>Renta tu bicicleta directamente en la estación (sigue las instrucciones allí).</li>
+            <li>¡Disfruta tu paseo por Maravatío!</li>
+            <li><strong>Importante:</strong> Una vez que termines tu viaje, debes regresar la bicicleta a cualquiera de nuestras estaciones. <strong>Nota especial:</strong> Algunas escuelas afiliadas contarán con estacionamientos especiales para EcoBicis. Anclar tu bicicleta en estos puertos escolares pausará temporalmente tu tiempo de renta hasta que la retires nuevamente.</li>
+            <li>Asegúrate de anclarla correctamente en una estación regular (o puerto escolar) para finalizar o pausar tu renta.</li>
+            <li><strong>Tiempo de Renta:</strong> Recibirás un mensaje de texto al número que registraste cuando tu tiempo de renta esté por finalizar (si no está pausado en un puerto escolar). Si no devuelves la bicicleta a tiempo (y no está en un puerto escolar) y no respondes a nuestros avisos, nuestro equipo procederá a recuperar la unidad.</li>
+        </ol>
+        <p><strong>Seguridad:</strong> Todas nuestras bicicletas cuentan con un número de seguimiento único y están protegidas para tu tranquilidad y la nuestra.</p>
+    </section>
+
+    <section id="vision">
+        <h2>Nuestra Visión</h2>
+        <p>Queremos un Maravatío más verde y ecológico. Creemos que una solución económicamente viable y económica es lo que México necesita.</p>
+        <p>Nuestra visión es un Maravatío donde estudiantes y trabajadores utilicen las EcoBicis en su día a día para llegar a sus destinos de forma muy económica y saludable. Comenzaremos aportando nuestro granito de arena aquí en Maravatío, fomentando un transporte limpio, saludable y accesible para todos.</p>
+    </section>
+
+    <section id="map-container">
+        <h2>Ubicaciones</h2>
+        <p>Encuentra nuestras estaciones de EcoBicis en Maravatío:</p>
+        <div id="map"></div>
+    </section>
+
+    <section id="pricing">
+        <h2>Precios Flexibles</h2>
+        <p>Elige el plan que mejor se adapte a tu viaje:</p>
+        <ul>
+            <li><strong>$5 MXN:</strong> Renta por 2 horas.</li>
+            <li><strong>$10 MXN:</strong> Renta por 4 horas.</li>
+            <li><strong>$30 MXN:</strong> Renta por todo el día (hasta el cierre de estaciones).</li>
+        </ul>
+        <p>Consulta los detalles y horarios específicos en cada estación.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>¿Tienes preguntas? ¡Llámanos!</p>
+        <a href="tel:+524471936357" class="contact-button">Llamar al 447 193 6357</a>
+    </section>
+
+    <footer>
+        <h2>Creadores</h2>
+        <ul>
+            <li>Danna Valeria Nuñez Rivera</li>
+            <li>Yuri Itzayana Perez Gonzales</li>
+            <li>Jorge Alberto Serrato Aguilar</li>
+            <li>Aaron Villegas Domínguez</li>
+        </ul>
+        <p>&copy; 2024 EcoBicis Maravatío</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4CAF50; /* Green color for eco theme */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-bottom: 4px solid #388E3C;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+section {
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #388E3C; /* Darker green */
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Bike Image Section */
+#bikes-image {
+    text-align: center;
+    padding: 1rem 1rem 0.5rem 1rem; /* Less vertical padding */
+    margin-bottom: 0; /* Reduce margin below image */
+    background-color: #e8f5e9; /* Light green background */
+    border-bottom: 1px solid #c8e6c9;
+}
+
+#bikes-image svg {
+    width: 150px; /* Control size */
+    max-width: 80%;
+    height: auto;
+}
+
+#map-container {
+    padding-bottom: 1rem; /* Adjust padding for map */
+}
+
+#map {
+    height: 400px; /* Good height for mobile */
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+}
+
+#pricing strong {
+    font-size: 1.5rem;
+    color: #4CAF50;
+}
+
+#pricing ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#pricing li {
+    background-color: #e8f5e9; /* Light green background for list items */
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 5px solid #4CAF50; /* Accent border */
+}
+
+#pricing li strong {
+    font-size: 1.1rem; /* Adjust size if needed */
+    color: #388E3C; /* Darker green for price emphasis */
+    margin-right: 10px;
+}
+
+#contact {
+    text-align: center;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-button:hover,
+.contact-button:focus {
+    background-color: #388E3C;
+}
+
+#how-it-works ol {
+    list-style: decimal;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+#how-it-works li {
+    margin-bottom: 0.75rem; /* Increased spacing for readability */
+}
+
+#how-it-works strong {
+    color: #d32f2f; /* Reddish color for emphasis */
+}
+
+#how-it-works li:last-child strong {
+   color: #1976D2; /* Blue for informational emphasis, or keep red */
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+footer h2 {
+    font-size: 1.2rem;
+    color: #444;
+    border-bottom: none; /* Remove border for footer heading */
+    margin-bottom: 0.5rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+footer li {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header p {
+        font-size: 1.2rem;
+    }
+    section {
+        margin: 1.5rem auto;
+        max-width: 800px; /* Limit width on larger screens */
+    }
+    #map {
+        height: 500px; /* Taller map on larger screens */
+    }
+}
